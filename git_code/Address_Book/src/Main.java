@@ -11,7 +11,8 @@ public class Main {
             System.out.println("\nMenu:");
             System.out.println("1. Add Contact");
             System.out.println("2. View All Contacts");
-            System.out.println("3. Exit");
+            System.out.println("3. Edit Contact");
+            System.out.println("4. Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -20,21 +21,22 @@ public class Main {
                 case 1 -> {
                     // Get contact details from user
                     System.out.print("Enter First Name: ");
-                    String firstName = scanner.nextLine();
+                    String firstName = scanner.nextLine().trim();
                     System.out.print("Enter Last Name: ");
-                    String lastName = scanner.nextLine();
+                    String lastName = scanner.nextLine().trim();
                     System.out.print("Enter Address: ");
-                    String address = scanner.nextLine();
+                    String address = scanner.nextLine().trim();
                     System.out.print("Enter City: ");
-                    String city = scanner.nextLine();
+                    String city = scanner.nextLine().trim()
+                            ;
                     System.out.print("Enter State: ");
-                    String state = scanner.nextLine();
+                    String state = scanner.nextLine().trim();
                     System.out.print("Enter Zip Code: ");
-                    String zip = scanner.nextLine();
+                    String zip = scanner.nextLine().trim();
                     System.out.print("Enter Phone Number: ");
-                    String phoneNumber = scanner.nextLine();
+                    String phoneNumber = scanner.nextLine().trim();
                     System.out.print("Enter Email: ");
-                    String email = scanner.nextLine();
+                    String email = scanner.nextLine().trim();
 
                     Contact newContact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
 
@@ -44,7 +46,36 @@ public class Main {
                     addressBook.displayContacts();
                 }
                 case 3 -> {
-                    System.out.println("Exiting Address Book Program. Goodbye!");
+                    System.out.print("Enter First Name of the contact to edit: ");
+                    String firstName = scanner.nextLine().trim();
+                    System.out.print("Enter Last Name of the contact to edit: ");
+                    String lastName = scanner.nextLine().trim();
+
+                    System.out.println("Enter new details for the contact:");
+                    System.out.print("Enter First Name: ");
+                    String newFirstName = scanner.nextLine().trim();
+                    System.out.print("Enter Last Name: ");
+                    String newLastName = scanner.nextLine().trim();
+                    System.out.print("Enter Address: ");
+                    String newAddress = scanner.nextLine().trim();
+                    System.out.print("Enter City: ");
+                    String newCity = scanner.nextLine().trim();
+                    System.out.print("Enter State: ");
+                    String newState = scanner.nextLine().trim();
+                    System.out.print("Enter Zip Code: ");
+                    String newZip = scanner.nextLine().trim();
+                    System.out.print("Enter Phone Number: ");
+                    String newPhoneNumber = scanner.nextLine().trim();
+                    System.out.print("Enter Email: ");
+                    String newEmail = scanner.nextLine().trim();
+
+                    Contact updatedContact = new Contact(newFirstName, newLastName, newAddress, newCity, newState, newZip, newPhoneNumber, newEmail);
+
+                    addressBook.editContact(firstName, lastName, updatedContact);
+                }
+
+                case 4-> {
+                    System.out.println("Exiting Address Book Pr1ogram. Goodbye!");
                     scanner.close();
                     return;
                 }

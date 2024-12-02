@@ -13,6 +13,19 @@ public class AddressBook {
         System.out.println("Contact added successfully: " + contact.getFirstName() + " " + contact.getLastName());
     }
 
+    public boolean editContact(String firstName, String lastName, Contact updatedContact) {
+        for (int i = 0; i < contacts.size(); i++) {
+            Contact contact = contacts.get(i);
+            if (contact.getFirstName().trim().equalsIgnoreCase(firstName.trim()) &&
+                    contact.getLastName().trim().equalsIgnoreCase(lastName.trim())) {
+                contacts.set(i, updatedContact);
+                System.out.println("Contact updated successfully.");
+                return true;
+            }
+        }
+        System.out.println("Contact not found.");
+        return false;
+    }
     public void displayContacts() {
         if (contacts.isEmpty()) {
             System.out.println("No contacts in the Address Book.");

@@ -26,6 +26,22 @@ public class AddressBook {
         System.out.println("Contact not found.");
         return false;
     }
+
+    public boolean deleteContact(String firstName, String lastName) {
+        for (int i = 0; i < contacts.size(); i++) {
+            Contact contact = contacts.get(i);
+            // Match the contact using case-insensitive and trimmed names
+            if (contact.getFirstName().trim().equalsIgnoreCase(firstName.trim()) &&
+                    contact.getLastName().trim().equalsIgnoreCase(lastName.trim())) {
+                contacts.remove(i); // Remove the contact
+                System.out.println("Contact deleted successfully: " + firstName + " " + lastName);
+                return true;
+            }
+        }
+        System.out.println("Contact not found. Please check the name and try again.");
+        return false;
+    }
+
     public void displayContacts() {
         if (contacts.isEmpty()) {
             System.out.println("No contacts in the Address Book.");

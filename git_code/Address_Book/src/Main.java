@@ -12,7 +12,8 @@ public class Main {
             System.out.println("1. Add Contact");
             System.out.println("2. View All Contacts");
             System.out.println("3. Edit Contact");
-            System.out.println("4. Exit");
+            System.out.println("4. Delete Contact");
+            System.out.println("5. Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -74,8 +75,17 @@ public class Main {
                     addressBook.editContact(firstName, lastName, updatedContact);
                 }
 
-                case 4-> {
-                    System.out.println("Exiting Address Book Pr1ogram. Goodbye!");
+                case 4 -> {
+                    // Delete Contact
+                    System.out.print("Enter First Name of the contact to delete: ");
+                    String firstName = scanner.nextLine();
+                    System.out.print("Enter Last Name of the contact to delete: ");
+                    String lastName = scanner.nextLine();
+
+                    addressBook.deleteContact(firstName, lastName);
+                }
+                case 5-> {
+                    System.out.println("Exiting Address Book Program. Goodbye!");
                     scanner.close();
                     return;
                 }
